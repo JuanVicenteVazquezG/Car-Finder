@@ -30,6 +30,12 @@ brand.addEventListener('input', (event) => {
     carFilter();
 });
 
+const year = document.querySelector('#year');
+year.addEventListener('input', (event) => {
+    dataFind.year = Number(event.target.value);
+    carFilter();
+});
+
 for (let i = max; i > min; i--) {
     let option = document.createElement('option');
     option.value = i;
@@ -58,5 +64,21 @@ function showCars(cars) {
 }
 
 function carFilter() {
-    console.log('from car Filter');
+    const result = retrieveCars().filter(filterBrand).filter(filterYear);
+}
+
+function filterBrand(car) {
+    if (dataFind.brand) {
+        return car.brand === dataFind.brand;
+    } else {
+
+    }
+}
+
+function filterYear(car) {
+    if (dataFind.year) {
+        return car.year === dataFind.year;
+    } else {
+
+    }
 }
