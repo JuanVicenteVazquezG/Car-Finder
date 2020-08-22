@@ -1,8 +1,34 @@
 // Create the years
 import { cars } from './data.js';
+
+// Variables
 const years = document.createElement('option');
 const max = new Date().getFullYear();
 let min = max - 10;
+
+// Data for the Search
+
+let dataFind = {
+    brand: '',
+    year: '',
+    minimumPrice: '',
+    maximunPrice: '',
+    doors: '',
+    transmission: '',
+    color: ''
+};
+
+// Events
+// Event Listener DOM Loaded
+document.addEventListener('DOMContentLoaded', showCars);
+
+// Event Listener for the form
+
+const brand = document.querySelector('#brand');
+brand.addEventListener('input', (event) => {
+    dataFind.brand = event.target.value;
+    carFilter();
+});
 
 for (let i = max; i > min; i--) {
     let option = document.createElement('option');
@@ -11,6 +37,7 @@ for (let i = max; i > min; i--) {
     document.querySelector('#year').appendChild(option);
 }
 
+// Functions
 function retrieveCars() {
     return cars;
 }
@@ -19,7 +46,7 @@ function showCars(cars) {
 
     // Read de Result Node
     const result = document.querySelector('#result');
-    retrieveCars().forEach((car) => { 
+    retrieveCars().forEach((car) => {
         const carHTML = document.createElement('p');
         carHTML.innerHTML = `
             <p>${car.brand} ${car.model} - ${car.year} - ${car.doors} Doors - 
@@ -27,9 +54,9 @@ function showCars(cars) {
             </p>
         `;
         result.appendChild(carHTML);
-     });
-
+    });
 }
-// Events
 
-document.addEventListener('DOMContentLoaded', showCars);
+function carFilter() {
+    console.log('from car Filter');
+}
