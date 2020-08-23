@@ -20,7 +20,7 @@ let dataFind = {
 
 // Events
 // Event Listener DOM Loaded
-document.addEventListener('DOMContentLoaded', showCars);
+document.addEventListener('DOMContentLoaded', () => { showCars(cars); });
 
 // Event Listener for the form
 
@@ -45,6 +45,7 @@ for (let i = max; i > min; i--) {
 
 // Functions
 function retrieveCars() {
+
     return cars;
 }
 
@@ -52,26 +53,40 @@ function showCars(cars) {
 
     // Read de Result Node
     const result = document.querySelector('#result');
-    retrieveCars().forEach((car) => {
+
+    // Clean the old result to show the news
+    while (result.firstChild) {
+        result.removeChild(result.firstChild);
+    }
+
+    // build the HTML of carss
+    cars.forEach((car) => {
         const carHTML = document.createElement('p');
         carHTML.innerHTML = `
-            <p>${car.brand} ${car.model} - ${car.year} - ${car.doors} Doors - 
-            Transmission: ${car.transmision} - Price: $${car.price} - Color: ${car.color} 
-            </p>
-        `;
+                <p>${car.brand} ${car.model} - ${car.year} - ${car.doors} Doors - 
+                Transmission: ${car.transmision} - Price: $${car.price} - Color: ${car.color} 
+                </p>
+            `;
         result.appendChild(carHTML);
     });
+
 }
 
 function carFilter() {
     const result = retrieveCars().filter(filterBrand).filter(filterYear);
+    if (result.length) {
+        console.log(result)
+        showCars(result);
+    } else {
+        alert("there aren't results");
+    }
 }
 
 function filterBrand(car) {
     if (dataFind.brand) {
         return car.brand === dataFind.brand;
     } else {
-
+        return car;
     }
 }
 
@@ -79,6 +94,6 @@ function filterYear(car) {
     if (dataFind.year) {
         return car.year === dataFind.year;
     } else {
-
+        return car;
     }
 }
