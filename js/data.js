@@ -6,9 +6,9 @@ export const cars = [
         price: 30000,
         doors: 4,
         color: 'white',
-        transmision: 'automatic'
+        transmission: 'automatic'
     },
-    { brand: 'Audi', model: 'A4', year: 2018, price: 40000, doors: 4, color: 'black', transmision: 'automatic' },
+    { brand: 'Audi', model: 'A4', year: 2018, price: 40000, doors: 4, color: 'black', transmission: 'automatic' },
     {
         brand: 'Ford',
         model: 'Mustang',
@@ -16,9 +16,9 @@ export const cars = [
         price: 20000,
         doors: 2,
         color: 'white',
-        transmision: 'automatic'
+        transmission: 'automatic'
     },
-    { brand: 'Audi', model: 'A6', year: 2010, price: 35000, doors: 4, color: 'black', transmision: 'automatic' },
+    { brand: 'Audi', model: 'A6', year: 2010, price: 35000, doors: 4, color: 'black', transmission: 'automatic' },
     {
         brand: 'BMW',
         model: 'Serie 5',
@@ -26,7 +26,7 @@ export const cars = [
         price: 70000,
         doors: 4,
         color: 'red',
-        transmision: 'automatic'
+        transmission: 'automatic'
     },
     {
         brand: 'Mercedes Benz',
@@ -35,7 +35,7 @@ export const cars = [
         price: 25000,
         doors: 4,
         color: 'white',
-        transmision: 'automatic'
+        transmission: 'automatic'
     },
     {
         brand: 'Chevrolet',
@@ -44,9 +44,9 @@ export const cars = [
         price: 60000,
         doors: 2,
         color: 'red',
-        transmision: 'manual'
+        transmission: 'manual'
     },
-    { brand: 'Ford', model: 'Mustang', year: 2019, price: 80000, doors: 2, color: 'red', transmision: 'manual' },
+    { brand: 'Ford', model: 'Mustang', year: 2019, price: 80000, doors: 2, color: 'red', transmission: 'manual' },
     {
         brand: 'Dodge',
         model: 'Challenger',
@@ -54,9 +54,9 @@ export const cars = [
         price: 40000,
         doors: 4,
         color: 'white',
-        transmision: 'automatic'
+        transmission: 'automatic'
     },
-    { brand: 'Audi', model: 'A3', year: 2017, price: 55000, doors: 2, color: 'black', transmision: 'manual' },
+    { brand: 'Audi', model: 'A3', year: 2017, price: 55000, doors: 2, color: 'black', transmission: 'manual' },
     {
         brand: 'Dodge',
         model: 'Challenger',
@@ -64,7 +64,7 @@ export const cars = [
         price: 25000,
         doors: 2,
         color: 'red',
-        transmision: 'manual'
+        transmission: 'manual'
     },
     {
         brand: 'Mercedes Benz',
@@ -73,7 +73,7 @@ export const cars = [
         price: 45000,
         doors: 4,
         color: 'blue',
-        transmision: 'automatic'
+        transmission: 'automatic'
     },
     {
         brand: 'BMW',
@@ -82,9 +82,9 @@ export const cars = [
         price: 90000,
         doors: 4,
         color: 'white',
-        transmision: 'automatic'
+        transmission: 'automatic'
     },
-    { brand: 'Ford', model: 'Mustang', year: 2017, price: 60000, doors: 2, color: 'black', transmision: 'manual' },
+    { brand: 'Ford', model: 'Mustang', year: 2017, price: 60000, doors: 2, color: 'black', transmission: 'manual' },
     {
         brand: 'Dodge',
         model: 'Challenger',
@@ -92,7 +92,7 @@ export const cars = [
         price: 35000,
         doors: 2,
         color: 'blue',
-        transmision: 'automatic'
+        transmission: 'automatic'
     },
     {
         brand: 'BMW',
@@ -101,7 +101,7 @@ export const cars = [
         price: 50000,
         doors: 4,
         color: 'white',
-        transmision: 'automatic'
+        transmission: 'automatic'
     },
     {
         brand: 'BMW',
@@ -110,7 +110,7 @@ export const cars = [
         price: 80000,
         doors: 4,
         color: 'black',
-        transmision: 'automatic'
+        transmission: 'automatic'
     },
     {
         brand: 'Mercedes Benz',
@@ -119,7 +119,7 @@ export const cars = [
         price: 40000,
         doors: 4,
         color: 'white',
-        transmision: 'automatic'
+        transmission: 'automatic'
     },
     {
         brand: 'Audi',
@@ -128,6 +128,6 @@ export const cars = [
         price: 30000,
         doors: 4,
         color: 'blue',
-        transmision: 'automatic'
+        transmission: 'automatic'
     }
 ];

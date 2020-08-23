@@ -48,6 +48,24 @@ maximun.addEventListener('input', (event) => {
     carFilter();
 });
 
+const doors = document.querySelector('#doors');
+doors.addEventListener('input', (event) => {
+    dataFind.doors = Number(event.target.value);
+    carFilter();
+});
+
+const transmission = document.querySelector('#transmission');
+transmission.addEventListener('input', (event) => {
+    dataFind.transmission = event.target.value;
+    carFilter();
+});
+
+const color = document.querySelector('#color');
+color.addEventListener('input', (event) => {
+    dataFind.color = event.target.value;
+    carFilter();
+});
+
 for (let i = max; i > min; i--) {
     let option = document.createElement('option');
     option.value = i;
@@ -76,7 +94,7 @@ function showCars(cars) {
         const carHTML = document.createElement('p');
         carHTML.innerHTML = `
                 <p>${car.brand} ${car.model} - ${car.year} - ${car.doors} Doors - 
-                Transmission: ${car.transmision} - Price: $${car.price} - Color: ${car.color} 
+                Transmission: ${car.transmission} - Price: $${car.price} - Color: ${car.color} 
                 </p>
             `;
         result.appendChild(carHTML);
@@ -85,7 +103,14 @@ function showCars(cars) {
 }
 
 function carFilter() {
-    const result = retrieveCars().filter(filterBrand).filter(filterYear).filter(filterMaximun).filter(filterMinimun);
+    const result = retrieveCars()
+        .filter(filterBrand)
+        .filter(filterYear)
+        .filter(filterMaximun)
+        .filter(filterMinimun)
+        .filter(filterDoors)
+        .filter(filterTransmission)
+        .filter(filterColor);
     if (result.length) {
         console.log(result)
         showCars(result);
@@ -122,6 +147,30 @@ function filterMinimun(car) {
 function filterMaximun(car) {
     if (dataFind.maximun) {
         return car.price <= dataFind.maximun;
+    } else {
+        return car;
+    }
+}
+
+function filterDoors(car) {
+    if (dataFind.doors) {
+        return car.doors === dataFind.doors;
+    } else {
+        return car;
+    }
+}
+
+function filterTransmission(car) {
+    if (dataFind.transmission) {
+        return car.transmission === dataFind.transmission;
+    } else {
+        return car;
+    }
+}
+
+function filterColor(car) {
+    if (dataFind.color) {
+        return car.color === dataFind.color;
     } else {
         return car;
     }
