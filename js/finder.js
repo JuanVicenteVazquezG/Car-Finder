@@ -11,8 +11,8 @@ let min = max - 10;
 let dataFind = {
     brand: '',
     year: '',
-    minimumPrice: '',
-    maximunPrice: '',
+    minimum: '',
+    maximun: '',
     doors: '',
     transmission: '',
     color: ''
@@ -33,6 +33,18 @@ brand.addEventListener('input', (event) => {
 const year = document.querySelector('#year');
 year.addEventListener('input', (event) => {
     dataFind.year = Number(event.target.value);
+    carFilter();
+});
+
+const minimun = document.querySelector('#minimun');
+minimun.addEventListener('input', (event) => {
+    dataFind.minimun = Number(event.target.value);
+    carFilter();
+});
+
+const maximun = document.querySelector('#maximun');
+maximun.addEventListener('input', (event) => {
+    dataFind.maximun = Number(event.target.value);
     carFilter();
 });
 
@@ -73,7 +85,7 @@ function showCars(cars) {
 }
 
 function carFilter() {
-    const result = retrieveCars().filter(filterBrand).filter(filterYear);
+    const result = retrieveCars().filter(filterBrand).filter(filterYear).filter(filterMaximun).filter(filterMinimun);
     if (result.length) {
         console.log(result)
         showCars(result);
@@ -93,6 +105,23 @@ function filterBrand(car) {
 function filterYear(car) {
     if (dataFind.year) {
         return car.year === dataFind.year;
+    } else {
+        return car;
+    }
+}
+
+function filterMinimun(car) {
+
+    if (dataFind.minimun) {
+        return car.price >= dataFind.minimun;
+    } else {
+        return car;
+    }
+}
+
+function filterMaximun(car) {
+    if (dataFind.maximun) {
+        return car.price <= dataFind.maximun;
     } else {
         return car;
     }
