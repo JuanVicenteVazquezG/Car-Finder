@@ -78,16 +78,22 @@ function retrieveCars() {
 
     return cars;
 }
-
-function showCars(cars) {
-
-    // Read de Result Node
+function cleanHTML(){
+      // Read de Result Node
     const result = document.querySelector('#result');
 
     // Clean the old result to show the news
     while (result.firstChild) {
         result.removeChild(result.firstChild);
     }
+}
+
+function showCars(cars) {
+
+    // Read de Result Node
+    const result = document.querySelector('#result');
+
+    cleanHTML();
 
     // build the HTML of carss
     cars.forEach((car) => {
@@ -102,6 +108,14 @@ function showCars(cars) {
 
 }
 
+function noResult(){
+cleanHTML();
+const noResult = document.createElement('div'); 
+noResult.classList.add('alert','error');
+noResult.appendChild(document.createTextNode("There's not result"));
+document.querySelector('#result').appendChild(noResult);
+}
+
 function carFilter() {
     const result = retrieveCars()
         .filter(filterBrand)
@@ -112,10 +126,9 @@ function carFilter() {
         .filter(filterTransmission)
         .filter(filterColor);
     if (result.length) {
-        console.log(result)
         showCars(result);
     } else {
-        alert("there aren't results");
+       noResult();
     }
 }
 
